@@ -1,0 +1,44 @@
+
+<ion-content>
+
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <img src="assets/img/logo.png">
+      <h1>Sistema de asistencia <ion-text style="color: #ffc409;">DUOC</ion-text> </h1>
+    </ion-label>
+  </ion-title>
+
+  <div class="ion-padding-center ion-text-center" >
+    <ion-card class="ion-text-center ">
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          <h1 style="color: #050264;">¡Respuesta correcta!</h1>
+        </ion-label>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-label><img src="assets/img/happy-person-25.gif"></ion-label>
+        <h1 style="color: #ffc409;" ><b class="ion-text-center">Tu Contraseña es:</b></h1>
+       <ion-label>
+        <h2 style="color: #000000;" *ngIf="usuario">{{ usuario.password }}</h2>
+       </ion-label>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="tertiary" shape="block" routerLink="/login">Volver al Login &nbsp;<ion-icon name="enter-outline"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+      
+      <ion-label>
+        <br>
+
+      </ion-label>
+      
+    </ion-card>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title style="font-size: 10px;">Realizado por Javiera Luco - Sebastian Moya</ion-title>
+  </ion-toolbar>
+</ion-footer>

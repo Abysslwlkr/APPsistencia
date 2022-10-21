@@ -1,0 +1,7 @@
+{
+  "name": "RegistAppDupcJS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

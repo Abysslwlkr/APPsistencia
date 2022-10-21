@@ -1,0 +1,126 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar style="--background:#130a34">
+    <ion-label ><img style="max-width:100px"  src="assets/img/logo.png"></ion-label>
+        <ion-title #titulo class="font1" style="color:white">Sistema de Asistencia <ion-text style="color: #ffc409;">DUOC</ion-text></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+
+<ion-title class="ion-padding-top">
+  <ion-label>
+    <h1 class="ion-text-center">¡Bienvenido! </h1>
+  </ion-label>
+</ion-title>
+
+<b class="ion-text-center">
+  <h4><p *ngIf="usuario">{{ usuario.nombreRegistrado }}</p></h4>
+</b>
+
+<ion-label>
+  <ion-text color="danger">
+  <h3 class="ion-text-center">Escanea el codigo QR para registrar tu asistencia a clases</h3>
+</ion-text>
+</ion-label>
+<ion-button color="tertiary" *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round" >
+  <ion-icon slot="start" name="videocam-outline"></ion-icon>
+  Comenzar Escaneo de QR
+  </ion-button>
+<!-- <ion-label>
+  <h4 class="ion-text-center" style="padding-top: 10px;">
+    <img style="max-width:350px; position:absolute; z-index: 100; border: 10px solid blue" src="assets/img/scanner2.gif">
+  </h4>
+</ion-label> -->
+<!-- INICIO -->
+<input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera" 
+(change)="verificarArchivoConQR($event.target.files)" />
+
+<ion-button color="tertiary" (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+<ion-icon slot="start" name="camera"></ion-icon>
+Cargar Imagen con Código QR
+</ion-button>
+
+
+<ion-button *ngIf="escaneando" color="tertiary" (click)="detenerEscaneoQR()" expand="full" shape="round">
+<ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+Detener escaneo de QR
+</ion-button>
+
+<div class="parent">
+  <video id="video1" class="image1" #video [hidden]="!escaneando" width="100%"></video>
+  <img class="image2" src="assets/img/scanner2.gif" alt="">
+</div>
+<canvas #canvas hidden></canvas>
+
+<ion-card>
+<ion-card-header>
+  <ion-card-title>Datos de la Asignatura</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+  <table>
+    <tr>
+      <td class="ancho_columna_titulos">Bloque de Inicio</td>
+      <td>{{bloqueInicio}}</td>
+    <tr>
+    <tr>
+      <td>Bloque de Término</td>
+      <td>{{bloqueTermino}}</td>
+    <tr>
+    <tr>
+      <td>Día</td>
+      <td>{{dia}}</td>
+    <tr>
+    <tr>
+      <td>Hora de Fin</td>
+      <td>{{horaFin}}</td>
+    <tr>
+    <tr>
+      <td>Hora de Inicio</td>
+      <td>{{horaInicio}}</td>
+    <tr>
+    <tr>
+      <td>Sigla</td>
+      <td>{{idAsignatura}}</td>
+    <tr>
+    <tr>
+      <td>Nombre de Asignatura</td>
+      <td>{{nombreAsignatura}}</td>
+    <tr>
+    <tr>
+      <td>Nombredel Profesor</td>
+      <td>{{nombreProfesor}}</td>
+    <tr>
+    <tr>
+      <td>Sección</td>
+      <td>{{seccion}}</td>
+    <tr>
+    <tr>
+      <td>Sede</td>
+      <td>{{sede}}</td>
+    <tr>
+  </table>
+
+
+</ion-card-content>
+</ion-card>
+<ion-button color="tertiary" (click)="limpiarDatos()" expand="block" expand="full" shape="round">
+  <ion-icon slot="start" name="trash-outline"></ion-icon>
+  Limpiar datos
+  </ion-button>
+
+
+
+<!-- FIN -->
+
+<ion-title class="ion-padding-top ion-text-center">
+  <h5><a shape="block" routerLink="/login" (click)="salir()">Cerrar Sesion <ion-icon name="log-out-outline"></ion-icon></a></h5>
+</ion-title>
+</ion-content>
+<ion-footer >
+  <ion-toolbar style="--background:#130a34">
+   <h4 style="color: #ffffff;" #mensaje>¡Que tengas una excelente semana!</h4>
+</ion-toolbar>
+</ion-footer>
+</ion-app>

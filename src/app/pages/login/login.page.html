@@ -1,0 +1,53 @@
+<ion-content>
+
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <img src="assets/img/logo.png">
+      <h1>Sistema de asistencia <ion-text style="color: #ffc409;">DUOC</ion-text> </h1>
+    </ion-label>
+  </ion-title>
+
+  <div class="ion-padding-vertical">
+
+    <ion-card class="ion-text-center ion-padding-vertical">
+
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          <h2>¡Bienvenido!</h2>
+        </ion-label>
+      </ion-card-title>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Ingresa tu Correo</ion-label>
+          <ion-input type="text"  [(ngModel)]="usuario.correoDuoc"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Ingresa tu Contraseña</ion-label>
+  
+          <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button class="font1" color="tertiary" shape="block" (click)="ingresar()">Ingresar &nbsp;<ion-icon name="enter-outline"></ion-icon></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+      
+      <ion-label>
+        <br>
+
+      </ion-label>
+      
+    </ion-card>
+    <ion-title class="ion-padding-top ion-text-center">
+    <h5><a routerLink="/correo">Recuperar Contraseña</a></h5>
+  </ion-title>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title style="font-size: 15px;" #titulo>Realizado por Javiera Luco - Sebastian Moya</ion-title>
+  </ion-toolbar>
+</ion-footer>
